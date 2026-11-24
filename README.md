@@ -1,10 +1,10 @@
 AWS Automated Threat Detection & Response
-📌 Project Overview
+ Project Overview
 This project demonstrates a mid-level cloud security automation architecture. Instead of relying on manual intervention to respond to threats, this solution uses an event-driven pipeline to automatically remediate compromised IAM credentials.
 
 When a threat is detected (simulated via an AWS GuardDuty event), an AWS Lambda function is triggered to immediately disable the compromised IAM Access Key, preventing further unauthorized access.
 
-🏗️ Architecture & Components
+ Architecture & Components
 The project was implemented in an AWS Sandbox environment and consists of the following workflow:
 
 The Target (IAM): Created a mock compromised-user with an active Access Key.
@@ -15,7 +15,7 @@ The Permission (IAM Role): Configured the Lambda execution role with IAMFullAcce
 
 The Trigger (Simulation): Simulated an AWS GuardDuty Finding event to test the automation.
 
-💻 The Python Remediation Code
+ The Python Remediation Code
 Below is the exact Python code used to parse the threat and disable the key:
 
 python
@@ -53,7 +53,7 @@ The Lambda function successfully parsed the event and executed the Python code.
 The AWS IAM Console confirms that the Access Key status was automatically changed to Inactive.
 (Insert Screenshot of the IAM page showing "AKIAUU335IFLZKJHYCUT - Inactive" here)
 
-🛡️ Security Context
+ Security Context
 This project highlights the concept that "Identity is the new perimeter."
 
 In a real-world scenario, this automated pipeline (triggered by Amazon GuardDuty and EventBridge) reduces the "Breakout Time" (the time an attacker has access) from hours or days down to milliseconds. This is a core component of a modern DevSecOps and Cloud Incident Response strategy.<img width="1361" height="607" alt="Screenshot 2026-11-24 122838" src="https://github.com/user-attachments/assets/93ae6d0a-3931-45fe-bc4a-08d801894ae1" />
